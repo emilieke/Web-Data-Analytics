@@ -1,0 +1,12 @@
+PREFIX  fl:    <http://www.snee.com/ns/flights#>
+PREFIX  acode: <http://www.daml.ri.cmu.edu/ont/AirportCodes.daml#>
+PREFIX  io:    <http://www.daml.org/2001/06/itinerary/itinerary-ont#>
+
+SELECT DISTINCT ?airport
+WHERE
+    {
+	{?x fl:flightFromCityName ?airport}
+	UNION
+	{?x fl:flightToCityName ?airport} 
+    }
+ORDER BY ?airport

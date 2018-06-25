@@ -1,0 +1,12 @@
+PREFIX  fl:    <http://www.snee.com/ns/flights#>
+PREFIX  acode: <http://www.daml.ri.cmu.edu/ont/AirportCodes.daml#>
+PREFIX  io:    <http://www.daml.org/2001/06/itinerary/itinerary-ont#>
+
+SELECT  ?code ?origin ?destination
+WHERE
+    {
+        ?x io:flight ?code .
+	?x fl:flightFromCityName ?origin .
+	?x fl:flightToCityName ?destination 
+    }
+ORDER BY ?code
